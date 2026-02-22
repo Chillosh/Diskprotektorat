@@ -72,14 +72,9 @@ class Window(customtkinter.CTk):
         except Exception as e:
             customtkinter.CTkLabel(self.main_area, text=f"Error: {e}").pack()
 
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
+def main():
     app = Window()
     app.mainloop()
+
+if __name__ == "__main__":
+    main()
