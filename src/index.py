@@ -73,6 +73,8 @@ class Window(customtkinter.CTk):
             customtkinter.CTkLabel(self.main_area, text=f"Error: {e}").pack()
 
 
+
+
 if __name__ == "__main__":
     app = Window()
     app.mainloop()
