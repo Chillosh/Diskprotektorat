@@ -3,17 +3,19 @@ import pathlib
 
 frame = customtkinter.CTkFrame
 font = "Arial"
+def backButton(currentPath):
+    if currentPath != "C:/":
+        return pathlib.Path(currentPath).parent
 
 class NavigationBar(frame):
     def __init__(self, master, callback, **kwargs):
         super().__init__(master, fg_color="transparent", height=40, **kwargs)
         self.callback = callback
-        self.btn_back = customtkinter.CTkButton(self, text="back", width=30)
+        self.btn_back = customtkinter.CTkButton(self, text="back", width=30, command=lambda: self.callback(backButton(self.path_entry.get())))
         self.btn_back.pack(side="left", padx=5, pady=5)
         self.path_entry = customtkinter.CTkEntry(self, placeholder_text="C:/")
         self.path_entry.pack(side="left", fill="x", expand=True, padx=10, pady=5)
         self.path_entry.bind("<Return>", lambda e: self.callback(self.path_entry.get()))
-
 
 class Sidebar(frame):
     def __init__(self, master, callback, **kwargs):
